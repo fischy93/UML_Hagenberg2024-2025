@@ -1,0 +1,53 @@
+@startuml
+left to right direction
+skinparam packageStyle rectangle
+
+actor "Kunde" as Customer
+actor "Personal vor Ort" as Staff
+actor "Zentrale Stelle" as CentralOffice
+
+package "Webapplikation" {
+    usecase "Tisch reservieren" as UC1
+    usecase "Reservierung ändern" as UC2
+    usecase "Reservierung stornieren" as UC3
+    usecase "Reservierung abfragen" as UC4
+    usecase "TooGoodToGo-Menü kaufen" as UC5
+    usecase "Warteliste-prüfen" as UC8
+    usecase "Reservierungsbestätigung Anfordern" as UC9
+    usecase "Webanmeldung" as UC10
+    usecase "Passwortanforder/Registrieren" as UC11
+    
+
+}
+
+package "Zentrale Tischreservierung" {
+    usecase "Reservierungsbestätigung versenden" as UC6
+    usecase "Statistische Auswertung" as UC7
+}
+
+Customer --> UC1 : "Web/Mobile"
+Customer --> UC2
+Customer --> UC3
+Customer --> UC4
+Customer --> UC5
+Customer --> UC8
+Customer --> UC9
+Customer --> UC10
+Customer --> UC11
+
+
+
+Customer --> UC1 : "Telefon"
+Customer --> UC6
+
+Staff --> UC1 : "Vor Ort"
+Staff --> UC5 : "Menü einstellen"
+Staff --> UC6
+Staff --> UC8
+
+CentralOffice --> UC1 : "Telefon"
+CentralOffice --> UC6
+CentralOffice --> UC7
+
+@enduml
+
