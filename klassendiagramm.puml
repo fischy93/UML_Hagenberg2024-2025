@@ -1,0 +1,93 @@
+@startuml
+
+hide circle
+hide methods
+left to right direction
+
+
+class "Resturantkette" as franchise {
+    +name: string
+    +address: string
+    +phone: string
+    +email: string
+}
+
+class "Resturant" as resturant {
+    +name: string
+    +country: string
+    +address: string
+    +phone: string
+    +email: string
+    
+}
+
+class "Raum" as room {
+    +name: string
+}
+
+
+class "Tisch" as table {
+    +number: number
+    +size: string
+    +status: boolean 
+}
+
+class "Bentutzer" as user {
+    +name: string
+    +userName: string
+    +email: string
+    +password: string
+    +phone: string
+    +address: string
+
+}
+class "Kunde" as customer {
+
+}
+
+class "Angestellter" as employee {
+
+}
+
+class "Reservierung" as reservation {
+    +date: date
+    +time: time
+}
+
+class "Menü" as menu {
+    +name: string
+    +price: number 
+
+}
+
+class "Warteliste" as waitlist {
+
+}
+
+class "Too Good To Go" as tgtg {
+    +time: date
+    +count: number
+}
+
+
+
+
+
+tgtg "0..*" -- "0..1" customer
+reservation "0..*" -- "1" customer
+resturant "1" *-- "0..*" reservation
+room "1..*" --* "1" resturant
+table "1..*" --o "1" room
+reservation "0..*" o-- "1" waitlist
+
+employee "1..*" --* "1" resturant
+employee "1..*" --* "1" franchise
+
+tgtg --|> menu
+
+resturant --|> franchise
+customer --|> user
+employee --|> user
+
+
+@enduml

@@ -4,3 +4,5 @@
 # Beispiel für andere ignorierte Dateien
 *.log
 *.tmp
+
+.DS_Store
