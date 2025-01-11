@@ -5,6 +5,7 @@ skinparam packageStyle rectangle
 actor "Kunde" as Customer
 actor "Personal vor Ort" as Staff
 actor "Zentrale Stelle" as CentralOffice
+actor "E-Mail System" as MailSystem 
 
 package "Webapplikation" {
     usecase "Tisch reservieren" as UC1
@@ -15,9 +16,7 @@ package "Webapplikation" {
     usecase "Warteliste-prüfen" as UC8
     usecase "Reservierungsbestätigung Anfordern" as UC9
     usecase "Webanmeldung" as UC10
-    usecase "Passwortanforder/Registrieren" as UC11
-    
-
+    usecase "Passwort anfordern/Registrieren" as UC11
 }
 
 package "Zentrale Tischreservierung" {
@@ -34,9 +33,6 @@ Customer --> UC8
 Customer --> UC9
 Customer --> UC10
 Customer --> UC11
-
-
-
 Customer --> UC1 : "Telefon"
 Customer --> UC6
 
@@ -49,5 +45,13 @@ CentralOffice --> UC1 : "Telefon"
 CentralOffice --> UC6
 CentralOffice --> UC7
 
-@enduml
+UC1 <-- MailSystem
+UC2  <-- MailSystem
+UC3  <-- MailSystem
+UC5  <-- MailSystem
+UC6  <-- MailSystem
+UC9  <-- MailSystem
+UC10 <-- MailSystem
+UC11 <-- MailSystem
 
+@enduml
