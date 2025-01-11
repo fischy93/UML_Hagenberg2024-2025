@@ -42,10 +42,10 @@ Reservierung verfällt, wenn nach einer Stunde die Reservierung nicht in Anspruc
 *	Zusatzanforderungen sind gespeichert und an das Restaurant übermittelt.
 
 **Ergebnis bei Fehler:**
-**Fehler**   | **Ergebnis** | **Bedingung, die dazu geführt hat**
--------- | -------- | --------
-Benutzer ist nicht autorisiert eine Reservierung zu machen   | Vorgang wird abgebrochen   | Vorgang wird abgebrochen	Benutzer ist nicht registriert bzw. eingeloggt
-Systemfehler   | Vorgang wird abgebrochen und protokolliert   | Ungültige Eingabe, Serverfehler, etc.
+**Fehler**                                                     | **Ergebnis**                                  | **Bedingung, die dazu geführt hat**
+--------                                                       | --------                                      | --------
+Benutzer ist nicht autorisiert eine Reservierung zu machen     | Vorgang wird abgebrochen                      | Vorgang wird abgebrochen	Benutzer ist nicht registriert bzw. eingeloggt
+Systemfehler                                                   | Vorgang wird abgebrochen und protokolliert    | Ungültige Eingabe, Serverfehler, etc.
 
 **Standardablauf**
 1.  Benutzer wählt die Option, eine Reservierung anzulegen.
@@ -68,12 +68,10 @@ Systemfehler   | Vorgang wird abgebrochen und protokolliert   | Ungültige Einga
 *	Automatische Benachrichtigungen müssen innerhalb von 30 Sekunden versandt werden.
 
 **Häufigkeit des Auftretens**
-
-  Mehrmals täglich pro Restaurant.
+*Mehrmals täglich pro Restaurant.
 
 **Status**
-
-  In Review
+*In Review
 
 **Offene Fragen**
 *	Wie wird mit Reservierungen verfahren, die durch fehlerhafte Kontaktangaben nicht bestätigt werden können?
