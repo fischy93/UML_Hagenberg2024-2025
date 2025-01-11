@@ -1,0 +1,6 @@
+# Ignoriere alle ZIP-Dateien
+*.zip
+
+# Beispiel für andere ignorierte Dateien
+*.log
+*.tmp
