@@ -21,9 +21,11 @@ boundary "Webbrowser/App" as app
 control "Reservierungssystem" as rs 
 database "Datenbank" as db
 control "Mailsystem" as mail
+
 ref over b1, app
     Login durchführen
 end ref
+
 b1 -> app: Reservierungsnummer eingeben
 app -> rs: Reservierungsnummer übergeben
 rs -> db: Prüfe Reservierungsnummer
@@ -42,5 +44,6 @@ else Raum nicht frei
 db --> rs: Raum ist nicht frei
 rs -> app: Fehler melden
 app -> b1: Raum belegt anzeigen
+end alt
 
 @enduml
