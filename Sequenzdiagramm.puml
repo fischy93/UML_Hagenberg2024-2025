@@ -1,0 +1,49 @@
+@startuml
+
+title "Login durchführen"
+
+actor "b1: Benutzer1" as b1
+participant "LogIn-Maske" as loginMask 
+participant "Benutzerverwaltung" as userManagement 
+b1 -> loginMask: Passwort eingeben
+loginMask -> userManagement: Prüft Passwort (pwd)
+userManagement -> loginMask : ergebnis = prüfePasswort (pwd)
+loginMask -> b1 : anzeige (ergebnis)
+
+@enduml
+
+@startuml
+
+title "Reservierung ändern"
+
+actor "b1: Benutzer1" as b1
+participant "Webbrowser/App" as app 
+participant "Reservierungssystem" as rs 
+participant "Datenbank" as db
+participant "Mailsystem" as mail
+ref over b1, app
+    Login durchführen
+end ref
+b1 -> app: Reservierungsnummer eingeben
+app -> rs: Reservierungsnummer übergeben
+rs -> db: Prüfe Reservierungsnummer
+db -> rs: Reservierung vorhanden
+rs -> app: aktuelle Daten anzeigen
+b1 -> app: neue Raumnummer eingeben
+app ->rs: Raumnummer übergeben
+rs -> db: Prüfen ob Raum frei ist
+alt Raum frei
+db -> rs: Raum ist frei
+rs -> db: Reservierungssytem bucht Raum
+db -> rs: Buchung erfolgreich
+rs -> mail: neue Reservierungsdaten übertragen
+mail -> b1: Bestätigung per Mail
+else Raum nicht frei
+db -> rs: Raum ist nicht frei
+rs -> app: Fehler melden
+app -> b1: Raum belegt anzeigen
+    loop Für jede Benachrichtigung
+    end loop
+end alt
+
+@enduml
