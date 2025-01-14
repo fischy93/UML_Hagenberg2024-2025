@@ -42,8 +42,5 @@ else Raum nicht frei
 db -> rs: Raum ist nicht frei
 rs -> app: Fehler melden
 app -> b1: Raum belegt anzeigen
-    loop Für jede Benachrichtigung
-    end loop
-end alt
 
 @enduml
